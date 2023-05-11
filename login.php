@@ -6,7 +6,7 @@
 
     <body>
         <div class="login-form">
-            <form action="index.php" method="post">
+            <form action="login.php" method="post">
                     <h2>Login</h2>
                     <label for="email">Email</label>
                     <br>
@@ -19,11 +19,15 @@
                     <label for="rememberMe">Remember Me?</label>
                     <input type="checkbox" name="rememberMe" id="rememberMe">
                     <br>
-                    <input type="submit" value="Login">
+                    <input type="submit" name="submit" id="submit" value="Login">
                     <br>
-                    <input type="submit" value="Create Account">
-                    <br>
-                    <a href="login.php">Forgot password?</a>
+                    
+            </form>
+            <form method="post" action="createAcc.php">
+                <input type="submit" name="createAcc" value="Create Account">
+            </form>
+            <form>
+                <a href="login.php">Forgot password?</a>
             </form>
         </div>
 
@@ -32,3 +36,35 @@
         </div>
     </body>
 </html>
+
+<?php 
+
+
+    
+    if($_SERVER['REQUEST_METHOD'] == "POST" &&  isset($_POST['submit'])) {
+
+        include("connections.php");
+
+        
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+    
+        $query = "SELECT password FROM users WHERE username = '{$email}'; ";
+       
+
+
+        try {
+            
+            
+    
+        } catch (mysqli_sql_exception) {
+            echo "Error: " . mysqli_error($conn);
+        }
+    
+    } 
+    
+
+    
+
+?>
