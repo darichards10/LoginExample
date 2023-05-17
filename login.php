@@ -2,9 +2,15 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="loginstyle.css">
+        <link rel="stylesheet" href="loadingDiv.css">
+        <script src="loading.js"></script>
+    <title>Login</title>
     </head>
 
     <body>
+        <div id="loadingPreview" class="loading-preview">
+            <div class="loading-spinner"></div>
+        </div>
         <div class="login-form">
             <form action="login.php" method="post">
                     <h2>Login</h2>
@@ -34,6 +40,7 @@
         <div class="footer">
             <p>2023 Example Login Page. All Rights Reserved.</p>
         </div>
+        <script src="loading.js"></script>
     </body>
 </html>
 
